@@ -16,7 +16,8 @@ tasks:
 - before: cd webapp
   init: yarn
   command: nginx -c $PWD/nginx.conf; npx webpack-dev-server
-- before: sudo apt update -y && sudo apt update -y && wget https://github.com/EOSIO/eos/releases/download/v2.0.12/eosio_2.0.12-1-ubuntu-18.04_amd64.deb
-  command: sudo apt install ./eosio_2.0.12-1-ubuntu-18.04_amd64.deb
-           cleos wallet unlock --password </password
-           nodeos --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p eosio --plugin eosio::chain_api_plugin --contracts-console
+- init: sudo apt update -y && sudo apt update -y && 
+        wget https://github.com/EOSIO/eos/releases/download/v2.0.12/eosio_2.0.12-1-ubuntu-18.04_amd64.deb && 
+        sudo apt install ./eosio_2.0.12-1-ubuntu-18.04_amd64.deb
+  before: cleos wallet unlock --password </password
+  command: nodeos --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p eosio --plugin eosio::chain_api_plugin --contracts-console
