@@ -16,7 +16,7 @@ tasks:
 - before: cd webapp
   init: yarn
   command: nginx -c $PWD/nginx.conf; npx webpack-dev-server
-- init: sudo apt update -y && sudo apt update -y && 
+- init: sudo apt update -y && sudo apt upgrade -y && 
         wget https://github.com/EOSIO/eos/releases/download/v2.0.12/eosio_2.0.12-1-ubuntu-18.04_amd64.deb && 
         sudo apt install ./eosio_2.0.12-1-ubuntu-18.04_amd64.deb
   before: cleos wallet unlock --password </password
